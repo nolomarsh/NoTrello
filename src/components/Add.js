@@ -15,29 +15,29 @@ const Add = (props) => {
 
     return (
         <>
-          
+
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="title">Title: </label><br/>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     name="title"
-                    onChange={handleChange} 
+                    onChange={handleChange}
                 />
 
                 <br/>
                 <br/>
 
                 <label htmlFor="title">Description: </label><br/>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     name="description"
-                    onChange={handleChange} 
+                    onChange={handleChange}
                 />
 
                 <br/>
                 <br/>
-                
+
                 <input type="submit" />
 
             </form>

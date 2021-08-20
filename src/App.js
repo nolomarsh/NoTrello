@@ -17,24 +17,24 @@ const App = () => {
         })
     }
 
-    const getList = () => {
-        axios.get('http://notrello-backend.herokuapp.com/api/list')
-        .then((response) => setList(response.data),
-            (error) => console.error(error))
-        .catch((error) => console.error(error))
+const getList = () => {
+    axios.get('http://notrello-backend.herokuapp.com/api/list')
+    .then((response) => setList(response.data),
+        (error) => console.error(error))
+    .catch((error) => console.error(error))
     }
 
     useEffect(() => {
         getList()
     }, [])
 
+
 return (
     <div className="container wrapper">
-    
+
         <Header />
 
         <Add handleCreate={handleCreate} />
-
         <div className="main container-fluid">
             {list.map((listItem) => {
                 return (
@@ -48,9 +48,8 @@ return (
                 )
             })}
         </div>
-
         <Footer />
-    
+
     </div>
 )
 
