@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-const Add = (props) => {
-    let emptylist = { title: ' ', description: ' ' }
+const Edit_list = (props) => {
+    let emptylist = {...props.list }
     let [list, setList] = useState(emptylist)
 
     const handleChange = (event) => {
@@ -10,7 +10,7 @@ const Add = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.handleCreate(list)
+        props.handleUpdate(list)
     }
 
     return (
@@ -21,6 +21,7 @@ const Add = (props) => {
                 <label htmlFor="title">Title: </label><br/>
                 <input
                     type="text"
+                    value={list.title}
                     name="title"
                     onChange={handleChange}
                 />
@@ -31,6 +32,7 @@ const Add = (props) => {
                 <label htmlFor="title">Description: </label><br/>
                 <input
                     type="text"
+                    value={list.description}
                     name="description"
                     onChange={handleChange}
                 />
@@ -45,4 +47,4 @@ const Add = (props) => {
     )
 }
 
-export default Add
+export default Edit_list
