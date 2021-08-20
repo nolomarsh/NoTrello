@@ -3,39 +3,43 @@ import axios from 'axios'
 import './css/List.css'
 import Card from './Card'
 import Edit from './Edit_list'
+import { useData, useRefreshData} from '../DataContext'
 
 const List = props => {
     let [list, setList] = useState({...props.list})
-    let [cards, setCards] = useState([])
+    let thisCards = useData().cards.filter(card => card.list === list.id)
+    // let [cards, setCards] = useState([])
+
+    const refreshData = useRefreshData()
 
     const handleUpdate = (editList) => {
         axios
-        .put('http://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
+        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
         .then((response) => {
             console.log(response)
-            props.getLists()
+            refreshData()
         })
     }
 
-    const getCards = () => {
-        axios
-            .get('https://notrello-backend.herokuapp.com/api/card')
-            .then((response) => {
-                setCards(response.data.filter(card => {
-                    return card.list === list.id
-                }))
-            })
-    }
+    // const getCards = () => {
+    //     axios
+    //         .get('https://notrello-backend.herokuapp.com/api/card')
+    //         .then((response) => {
+    //             setCards(response.data.filter(card => {
+    //                 return card.list === list.id
+    //             }))
+    //         })
+    // }
 
-    useEffect(() => {
-        props.getLists()
-        getCards()
-    }, [])
+    // useEffect(() => {
+    //     // props.getLists()
+    //     // getCards()
+    // }, [])
 
     return (
         <div className='list-card'>
             <h4>{props.list.title}</h4>
-            {cards.map((card,index) => {
+            {thisCards.map((card,index) => {
                 return (
                         <>
                         <Card
