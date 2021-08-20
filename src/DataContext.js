@@ -23,11 +23,11 @@ export const DataProvider = ({ children }) => {
 
     const refreshData = () => {
         axios
-            .get('http://notrello-backend.herokuapp.com/api/list')
+            .get('https://notrello-backend.herokuapp.com/api/list')
             .then((response) => {
                 setLists(response.data)
                 axios
-                    .get('http://notrello-backend.herokuapp.com/api/card')
+                    .get('https://notrello-backend.herokuapp.com/api/card')
                     .then((response) => {
                         setCards(response.data)
                     })

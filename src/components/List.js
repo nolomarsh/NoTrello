@@ -14,7 +14,7 @@ const List = props => {
 
     const handleUpdate = (editList) => {
         axios
-        .put('http://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
+        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
         .then((response) => {
             console.log(response)
             refreshData()
