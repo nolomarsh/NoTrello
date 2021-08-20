@@ -18,7 +18,7 @@ const Add = (props) => {
 
     const handleCreate = (addList) => {
         axios
-        .post('http://notrello-backend.herokuapp.com/api/list', addList)
+        .post('https://notrello-backend.herokuapp.com/api/list', addList)
         .then((response) => {
             console.log(response)
             refreshData()
