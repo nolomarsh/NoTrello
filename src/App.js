@@ -4,53 +4,51 @@ import axios from 'axios'
 import Add from './components/Add'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import List from './components/List'
 
 const App = () => {
-    let [list, setList] = useState([])
+    let [lists, setLists] = useState([])
 
     const handleCreate = (addList) => {
         axios
         .post('http://notrello-backend.herokuapp.com/api/list', addList)
         .then((response) => {
             console.log(response)
-            getList()
+            getLists()
         })
     }
 
-    const getList = () => {
+    const getLists = () => {
         axios.get('http://notrello-backend.herokuapp.com/api/list')
-        .then((response) => setList(response.data),
+        .then((response) => setLists(response.data),
             (error) => console.error(error))
         .catch((error) => console.error(error))
     }
 
     useEffect(() => {
-        getList()
+        getLists()
     }, [])
 
 return (
     <div className="container wrapper">
-    
+
         <Header />
 
         <Add handleCreate={handleCreate} />
 
-        <div className="main container-fluid">
-            {list.map((listItem) => {
+        <div className="listBox container-fluid">
+            {lists.map((list, index) => {
                 return (
-
-                    <div className="lists"
-                        key={listItem.id}>
-                        <h3 className="list_title">Title: {listItem.title}</h3>
-                        <p className="list_description">Description: {listItem.description}</p>
-
-                    </div>
+                    <List
+                        key={index}
+                        list={list}
+                    />
                 )
             })}
         </div>
 
         <Footer />
-    
+
     </div>
 )
 
