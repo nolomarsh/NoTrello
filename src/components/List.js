@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import './css/List.css'
+import Card from './Card'
 
 const List = props => {
     let [list, setList] = useState({...props.list})
@@ -10,8 +11,9 @@ const List = props => {
         axios
             .get('https://notrello-backend.herokuapp.com/api/card')
             .then((response) => {
-                let data = response.data.filter(card => card.list === list.id)
-                setCards(data)
+                setCards(response.data.filter(card => {
+                    return card.list === list.id
+                }))
             })
     }
 
@@ -22,8 +24,11 @@ const List = props => {
     return (
         <div className='list'>
             <h4>{list.title}</h4>
-            {cards.map((card) => {
-                return <p key={card.id}>{card.name}</p>
+            {cards.map((card,index) => {
+                return <Card
+                            key={index}
+                            card={card}
+                        />
             })}
         </div>
     )
