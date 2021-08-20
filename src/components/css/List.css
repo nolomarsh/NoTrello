@@ -1,8 +1,6 @@
-.list {
-    display: flex;
-    flex-direction: column;
+.list-card {
     outline: 1px solid #aaa;
     width: 250px;
     align-items: center;
-    
+    margin: 10px;
 }
