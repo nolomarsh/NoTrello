@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Add = (props) => {
-    let emptylist = { title: '', description: '' }
+    let emptylist = { title: ' ', description: ' ' }
     let [list, setList] = useState(emptylist)
 
     const handleChange = (event) => {
