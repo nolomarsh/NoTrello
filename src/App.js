@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import List from './components/List'
 
+
 const App = () => {
     let [lists, setLists] = useState([])
 
@@ -38,12 +39,15 @@ return (
         <Add handleCreate={handleCreate} />
 
         <div className="listBox container-fluid">
-            {lists.map((list, index) => {
+            {lists.map ((list, index) => {
                 return (
+                    <>
                     <List
+                        getLists={getLists}
                         key={index}
                         list={list}
                     />
+                    </>
                 )
             })}
         </div>
