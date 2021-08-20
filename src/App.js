@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Add from './components/Add'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+const App = () => {
+    let [cards, setCards] = useState([])
+
+    const handleCreate = (addCards) => {
+        axios
+        .post('notrello-backend.herokuapp.com/api/list', addCards)
+        .the((response) => {
+            console.log(response)
+            getCards()
+        })
+    }
+
+    const getCards = () => {
+        axios.get('notrello-backend.herokuapp.com/api/list')
+        .then(
+        (response) => setCards(response.data),
+        (error) => console.error(error)
+        )
+        .catch((error) => console.error(error))
+    }
+
+    useEffect(() => {
+        getCards()
+    }, [])
+
+return (
+    <>
+        <Header />
+        <Add handleCreate={handleCreate} />
+        <div className="cards">
+            {cards.map((cards) => {
+                return (
+                    <div className="cards"
+                        key={cards.id}>
+                        <h4>Title: {cards.title}</h4>
+                    </div>
+
+                )
+            })}
+        </div>
+        <Footer />
+    </>
+)
+
 }
 
-export default App;
+
+export default App
