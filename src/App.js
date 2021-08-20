@@ -4,49 +4,52 @@ import axios from 'axios'
 import Add from './components/Add'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import List from './components/List'
 
 const App = () => {
-    let [cards, setCards] = useState([])
+    let [lists, setLists] = useState([])
 
-    const handleCreate = (addCards) => {
+    const handleCreate = (addList) => {
         axios
-        .post('notrello-backend.herokuapp.com/api/list', addCards)
-        .the((response) => {
+        .post('http://notrello-backend.herokuapp.com/api/list', addList)
+        .then((response) => {
             console.log(response)
-            getCards()
+            getLists()
         })
     }
 
-    const getCards = () => {
-        axios.get('notrello-backend.herokuapp.com/api/list')
-        .then(
-        (response) => setCards(response.data),
-        (error) => console.error(error)
-        )
+    const getLists = () => {
+        axios.get('http://notrello-backend.herokuapp.com/api/list')
+        .then((response) => setLists(response.data),
+            (error) => console.error(error))
         .catch((error) => console.error(error))
     }
 
     useEffect(() => {
-        getCards()
+        getLists()
     }, [])
 
 return (
-    <>
-        <Header />
-        <Add handleCreate={handleCreate} />
-        <div className="cards">
-            {cards.map((cards) => {
-                return (
-                    <div className="cards"
-                        key={cards.id}>
-                        <h4>Title: {cards.title}</h4>
-                    </div>
+    <div className="container wrapper">
 
+        <Header />
+
+        <Add handleCreate={handleCreate} />
+
+        <div className="listBox container-fluid">
+            {lists.map((list, index) => {
+                return (
+                    <List
+                        key={index}
+                        list={list}
+                    />
                 )
             })}
         </div>
+
         <Footer />
-    </>
+
+    </div>
 )
 
 }
