@@ -33,7 +33,7 @@ const List = props => {
     }, [])
 
     return (
-        <div className='list'>
+        <div className='list-card'>
             <h4>{props.list.title}</h4>
             {cards.map((card,index) => {
                 return (

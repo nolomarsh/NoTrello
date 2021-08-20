@@ -39,15 +39,13 @@ return (
 
         <Add handleCreate={handleCreate} />
         
-        <div className="container-fluid mt-4 mb-4 list-box ">
 
-            <div className="d-flex justify-content-start">
+            <div className="list-box">
                 
                 {lists.map ((list, index) => {
                     return (
                         <>
                         <List
-                            className="m-4 p-4"
                             getLists={getLists}
                             key={index}
                             list={list}
@@ -57,7 +55,6 @@ return (
                 })}
 
             </div>
-        </div>
         
         
         
