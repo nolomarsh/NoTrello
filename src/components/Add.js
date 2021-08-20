@@ -1,27 +1,45 @@
 import React, { useState } from 'react'
 
 const Add = (props) => {
-    let emptyCards = { title: '' }
-    let [cards, setCards] = useState(emptyCards)
+    let emptylist = { title: ' ', description: ' ' }
+    let [list, setList] = useState(emptylist)
 
     const handleChange = (event) => {
-        setCards({...cards, [event.target.title]: event.target.value})
+        setList({...list, [event.target.name]: event.target.value})
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.handleCreate(cards)
+        props.handleCreate(list)
     }
 
     return (
         <>
-            <br />
-            <br />
+          
             <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title: </label>
-                <input type="text" title="title"
-                onChange={handleChange} />
+
+                <label htmlFor="title">Title: </label><br/>
+                <input 
+                    type="text" 
+                    name="title"
+                    onChange={handleChange} 
+                />
+
+                <br/>
+                <br/>
+
+                <label htmlFor="title">Description: </label><br/>
+                <input 
+                    type="text" 
+                    name="description"
+                    onChange={handleChange} 
+                />
+
+                <br/>
+                <br/>
+                
                 <input type="submit" />
+
             </form>
         </>
     )
