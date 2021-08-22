@@ -12,14 +12,7 @@ const List = props => {
 
     const refreshData = useRefreshData()
 
-    const handleUpdate = (editList) => {
-        axios
-        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
-        .then((response) => {
-            console.log(response)
-            refreshData()
-        })
-    }
+
 
     // const getCards = () => {
     //     axios
@@ -49,7 +42,6 @@ const List = props => {
                         </>
             )})}
             <Edit
-                handleUpdate={handleUpdate}
                 list={list}
                 key={props.list.id}
             />
