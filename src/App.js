@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import './App.css'
 
 import Add from './components/Add'
 import Header from './components/Header'
@@ -25,20 +26,22 @@ const App = () => {
 
 
 return (
+
     < DataProvider >
-    <div className="container wrapper">
+    <div className="wrapper">
 
         <Header />
 
         <Add />
 
         <ListBox />
-
+        
         <Footer />
-
     </div>
     </ DataProvider >
+
 )
+
 
 }
 
