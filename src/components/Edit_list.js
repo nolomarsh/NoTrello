@@ -23,12 +23,14 @@ const Edit_list = (props) => {
         .then((response) => {
             console.log(response)
             refreshData()
+
             props.setListView('cards')
         })
     }
 
     const exitEdit = () => {
         props.setListView('cards')
+
     }
 
     return (
