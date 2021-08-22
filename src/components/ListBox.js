@@ -6,7 +6,7 @@ import AddList from "./AddList"
 import './css/List.css'
 
 const ListBox = (props) => {
-    const [lists] = useState([...useData().lists])
+    const lists = [...useData().lists]
 
     return(
         <div className="list-box">
