@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useRefreshData} from '../DataContext'
 
-const Add_card = (props) => {
+const AddCard = (props) => {
     let [newCard, setNewCard] = useState({name:'', body:'', labels:'', image:'', status: false, list: props.list.id})
 
     const refreshData = useRefreshData()
@@ -29,4 +29,4 @@ const Add_card = (props) => {
     )
 }
 
-export default Add_card
+export default AddCard

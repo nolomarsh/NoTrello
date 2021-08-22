@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import {useRefreshData} from '../DataContext'
-import './css/List.css'
 
-const Add_list = (props) => {
-    let emptylist = { title: ' ', description: ' ' }
+const Edit_List = (props) => {
+    let emptylist = props.list
     let [list, setList] = useState(emptylist)
-    let refreshData = useRefreshData()
+
+    const refreshData = useRefreshData()
 
     const handleChange = (event) => {
         setList({...list, [event.target.name]: event.target.value})
@@ -14,16 +14,30 @@ const Add_list = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleCreate(list)
+        handleUpdate(list)
     }
 
-    const handleCreate = (addList) => {
+    const handleUpdate = (editList) => {
         axios
-        .post('https://notrello-backend.herokuapp.com/api/list', addList)
+        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
         .then((response) => {
             console.log(response)
             refreshData()
+
+            props.setListView('cards')
         })
+    }
+
+    const exitEdit = () => {
+        props.setListView('cards')
+    }
+
+    const handleDelete = () => {
+        axios
+            .delete('https://notrello-backend.herokuapp.com/api/list/' + list.id)
+            .then((response) => {
+                refreshData()
+            })
     }
 
     return (
@@ -34,6 +48,7 @@ const Add_list = (props) => {
                 <label htmlFor="title">Title: </label><br/>
                 <input
                     type="text"
+                    value={list.title}
                     name="title"
                     onChange={handleChange}
                 />
@@ -44,6 +59,7 @@ const Add_list = (props) => {
                 <label htmlFor="title">Description: </label><br/>
                 <input
                     type="text"
+                    value={list.description}
                     name="description"
                     onChange={handleChange}
                 />
@@ -51,11 +67,13 @@ const Add_list = (props) => {
                 <br/>
                 <br/>
 
-                <input type="submit" />
-
+                <input className='btn btn-warning' type="submit" />
+                <button className='btn btn-warning' onClick={exitEdit}>Back</button>
+                <button className='btn btn-warning' onClick={handleDelete}>Delete</button>
             </form>
+
         </>
     )
 }
 
-export default Add_list
+export default Edit_List
