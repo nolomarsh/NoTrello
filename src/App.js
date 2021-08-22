@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { Container } from 'react-bootstrap'
 
 import Add from './components/Add'
 import Header from './components/Header'
@@ -33,16 +34,16 @@ const App = () => {
 
 
 return (
-    <div className="wrapper">
+        <div className="wrapper">
         <Header />
-
-
+        <div class="dummy">
+        </div>
         <Add handleCreate={handleCreate} />
-        
+
         <div className="container-fluid mt-4 mb-4 list-box ">
 
             <div className="d-flex justify-content-start">
-                
+
                 {lists.map ((list, index) => {
                     return (
                         <>
@@ -57,11 +58,8 @@ return (
                 })}
 
             </div>
-        </div>
-        
-        
-        
-        
+         </div>
+
         <Footer />
     </div>
 
