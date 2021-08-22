@@ -3,6 +3,7 @@ import axios from 'axios'
 import './css/List.css'
 import Card from './Card'
 import Edit_list from './Edit_list'
+import Add_card from './Add_card'
 import { useData, useRefreshData} from '../DataContext'
 
 const List = props => {
@@ -37,6 +38,7 @@ const List = props => {
                             />
                             </>
                 )})}
+                <Add_card list={props.list} />
                 <button className='btn btn-warning' onClick={showEdit}>Edit List</button>
                 </>
             }
