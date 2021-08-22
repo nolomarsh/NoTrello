@@ -13,9 +13,25 @@
   color: white;
 }
 .list-box{
+<<<<<<< HEAD
   border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   overflow-x: auto;
+=======
+  /* height: 85vh; */
+  width: 100vw;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  margin-left: 10px;
+>>>>>>> 84521bb4fdd18f9fadf2bcb37e20925ae37494ca
+}
+
+.dummy {
+    height: 120px;
 }
