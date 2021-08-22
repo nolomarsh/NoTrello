@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {useRefreshData} from '../DataContext'
 
-const Add = (props) => {
+const Add_list = (props) => {
     let emptylist = { title: ' ', description: ' ' }
     let [list, setList] = useState(emptylist)
     let refreshData = useRefreshData()
@@ -57,4 +57,4 @@ const Add = (props) => {
     )
 }
 
-export default Add
+export default Add_list

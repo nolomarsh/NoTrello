@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 
-import Add from './components/Add'
+// import Add from './components/Add'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ListBox from './components/ListBox'
@@ -31,8 +31,6 @@ return (
     <div className="wrapper">
 
         <Header />
-
-        <Add />
 
         <ListBox />
 
