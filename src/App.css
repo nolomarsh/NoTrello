@@ -13,16 +13,6 @@
   color: white;
 }
 .list-box{
-<<<<<<< HEAD
-<<<<<<< HEAD
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  overflow-x: auto;
-=======
-=======
->>>>>>> 66a29901333b168c7125d952826c5179f0e719f8
   /* height: 85vh; */
   width: 100vw;
   /* border: 1px solid red; */
@@ -32,11 +22,7 @@
   white-space: nowrap;
   padding: 10px;
   margin-left: 10px;
-<<<<<<< HEAD
->>>>>>> 84521bb4fdd18f9fadf2bcb37e20925ae37494ca
-=======
 
->>>>>>> 66a29901333b168c7125d952826c5179f0e719f8
 }
 
 .dummy {
