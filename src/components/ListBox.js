@@ -3,9 +3,11 @@ import {useData} from '../DataContext'
 import List from './List'
 
 const ListBox = (props) => {
+    const lists = [...useData().lists]
+
     return(
-        <div className="listBox container-fluid">
-            {props.lists.map((list, index) => {
+        <div className="list-box">
+            {lists.map((list, index) => {
                 return (
                     <List
                         key={index}

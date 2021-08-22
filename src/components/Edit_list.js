@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import {useRefreshData} from '../DataContext'
 
 const Edit_list = (props) => {
     let emptylist = {...props.list }
     let [list, setList] = useState(emptylist)
+
+    const refreshData = useRefreshData()
 
     const handleChange = (event) => {
         setList({...list, [event.target.name]: event.target.value})
@@ -10,7 +14,21 @@ const Edit_list = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.handleUpdate(list)
+        handleUpdate(list)
+    }
+
+    const handleUpdate = (editList) => {
+        axios
+        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
+        .then((response) => {
+            console.log(response)
+            refreshData()
+            props.setListView('cards')
+        })
+    }
+
+    const exitEdit = () => {
+        props.setListView('cards')
     }
 
     return (
@@ -43,6 +61,7 @@ const Edit_list = (props) => {
                 <input type="submit" />
 
             </form>
+            <button onClick={exitEdit}>Exit</button>
         </>
     )
 }

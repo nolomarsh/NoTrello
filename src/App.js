@@ -3,23 +3,17 @@ import axios from 'axios'
 import './App.css'
 import { Container } from 'react-bootstrap'
 
+
 import Add from './components/Add'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import List from './components/List'
+import ListBox from './components/ListBox'
+
+import { DataProvider } from './DataContext'
 
 
 const App = () => {
     let [lists, setLists] = useState([])
-
-    const handleCreate = (addList) => {
-        axios
-        .post('http://notrello-backend.herokuapp.com/api/list', addList)
-        .then((response) => {
-            console.log(response)
-            getLists()
-        })
-    }
 
     const getLists = () => {
         axios.get('http://notrello-backend.herokuapp.com/api/list')
@@ -34,34 +28,19 @@ const App = () => {
 
 
 return (
-        <div className="wrapper">
+
+    < DataProvider >
+    <div className="wrapper">
+
         <Header />
-        <div class="dummy">
-        </div>
-        <Add handleCreate={handleCreate} />
 
-        <div className="container-fluid mt-4 mb-4 list-box ">
+        <Add />
 
-            <div className="d-flex justify-content-start">
-
-                {lists.map ((list, index) => {
-                    return (
-                        <>
-                        <List
-                            className="m-4 p-4"
-                            getLists={getLists}
-                            key={index}
-                            list={list}
-                            />
-                        </>
-                    )
-                })}
-
-            </div>
-         </div>
-
+        <ListBox />
+        
         <Footer />
     </div>
+    </ DataProvider >
 
 )
 
