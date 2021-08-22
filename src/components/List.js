@@ -13,7 +13,7 @@ const List = props => {
     // let [cards, setCards] = useState([])
 
     const refreshData = useRefreshData()
-
+    
     const showEdit = () => {
         setListView('Edit_list')
     }
@@ -22,6 +22,7 @@ const List = props => {
 
         <div className='list-card'>
             <h4>{props.list.title}</h4>
+
             {listView === 'cards' &&
                 <>
                 {thisCards.map((card,index) => {
@@ -43,7 +44,6 @@ const List = props => {
                     setListView={setListView}
                 />
             }
-
         </div>
     )
 }
