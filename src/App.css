@@ -13,14 +13,9 @@
   color: white;
 }
 .list-box{
-  height: 85vh;
-  width: 100vw;
   border: 1px solid red;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  overflow: scroll;
-  white-space: nowrap;
-  padding: 35px;
-  margin-left: 10px;
+  justify-content: space-around;
+  overflow-x: auto;
 }
