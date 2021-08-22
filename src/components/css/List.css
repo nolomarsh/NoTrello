@@ -1,10 +1,15 @@
-.list-card {
+.list {
     outline: 1px solid #aaa;
     min-width: 200px;
 
     align-items: center;
     margin: 10px;
     padding: 5px;
+}
+
+.list * {
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 h4 {
