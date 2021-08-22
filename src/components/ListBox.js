@@ -10,7 +10,6 @@ const ListBox = (props) => {
             {lists.map((list, index) => {
                 return (
                     <List
-                        getLists={props.getLists}
                         key={index}
                         list={list}
                     />

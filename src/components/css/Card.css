@@ -1,0 +1,9 @@
+.listCard {
+    outline: 1px solid black;
+    padding: 3px;
+    margin: 5px 0;
+}
+
+.listCard p {
+    margin: 0;
+}

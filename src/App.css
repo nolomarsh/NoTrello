@@ -13,14 +13,13 @@
   color: white;
 }
 .list-box{
-  height: 85vh;
+  /* height: 85vh; */
   width: 100vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  overflow: scroll;
+  overflow: auto;
   white-space: nowrap;
-  padding: 35px;
+  padding: 10px;
   margin-left: 10px;
 }
