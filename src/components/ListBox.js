@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import {useData} from '../DataContext'
 import List from './List'
+import Add_list from "./Add_list"
+
+import './css/List.css'
 
 const ListBox = (props) => {
     const lists = [...useData().lists]
@@ -15,6 +18,9 @@ const ListBox = (props) => {
                     />
                 )
             })}
+            <div className='list'>
+                <Add_list />
+            </div>
         </div>
     )
 }
