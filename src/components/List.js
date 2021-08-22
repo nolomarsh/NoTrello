@@ -14,7 +14,7 @@ const List = props => {
 
     const refreshData = useRefreshData()
 
-    
+
     const showEdit = () => {
         setListView('Edit_list')
     }
@@ -22,7 +22,7 @@ const List = props => {
 
     return (
 
-        <div className='list-card'>
+        <div className='list'>
             <h4>{props.list.title}</h4>
 
 
