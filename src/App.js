@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 import './App.css'
 
 // import Add from './components/Add'
@@ -11,19 +10,6 @@ import { DataProvider } from './DataContext'
 
 
 const App = () => {
-    let [lists, setLists] = useState([])
-
-    const getLists = () => {
-        axios.get('http://notrello-backend.herokuapp.com/api/list')
-        .then((response) => setLists(response.data),
-            (error) => console.error(error))
-        .catch((error) => console.error(error))
-    }
-
-    useEffect(() => {
-        getLists()
-    }, [])
-
 
 return (
 

@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import './css/Card.css'
 
 const Card = props => {
-    let [card, setCard] = useState({...props.card})
+    let [card] = useState({...props.card})
 
     return(
         <div className='listCard'>

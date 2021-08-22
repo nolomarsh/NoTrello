@@ -19,3 +19,9 @@ h4 {
 .btn-warning {
     margin-right: 3px;
 }
+
+.btn-show {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
