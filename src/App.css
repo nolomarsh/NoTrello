@@ -13,11 +13,12 @@
   color: white;
 }
 .list-box{
-  /* height: 85vh; */
+  min-height: 85vh;
   width: 100vw;
   /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   overflow: auto;
   padding: 10px;
   margin-left: 10px;
@@ -26,5 +27,4 @@
 
 .btn {
     padding: 5px;
-    
 }
