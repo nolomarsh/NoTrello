@@ -37,12 +37,12 @@ const List = props => {
                             />
                             </>
                 )})}
-                <button onClick={showEdit}>Edit List</button>
+                <button className='btn btn-warning' onClick={showEdit}>Edit List</button>
                 </>
             }
             {listView === 'Edit_list' &&
                 <Edit_list
-                    list={list}
+                    list={props.list}
                     key={props.list.id}
                     setListView={setListView}
                 />
