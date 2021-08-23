@@ -6,6 +6,10 @@ import './css/Header.css'
 
 const Header = () => {
     const [isAuth, setIsAuth] = useState(false);
+
+
+
+
     //how to check login
         /*
             user will input data into fields
@@ -21,12 +25,13 @@ const Header = () => {
              - {"username":["This field may not be blank."]} 
         */
     //how to logout
+        /*
 
-    axios.put('https://notrello-backend.herokuapp.com/api/useraccount/login')
-    .then((response) => {
-      setIsAuth(response.data);
-      console.log(response.data);
-    })
+
+
+        */
+
+   
     return (
         <header id="navbar">
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
