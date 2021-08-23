@@ -48,3 +48,12 @@ body{
     font-family: 'Urbanist', sans-serif;
     box-shadow: 10px 10px 5px grey;
 }
+
+.list h4 {
+    color: #ee7ad7;
+    font-family: Indie Flower;
+}
+
+.btn-show{
+    /* color: red; */
+}

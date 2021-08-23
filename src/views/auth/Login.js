@@ -1,20 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
+import { useData, useUpdateCurrentUser } from '../../DataContext'
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState({});
-  
+
+  const currentUser = useData().currentUser
+
+  const updateCurrentUser = useUpdateCurrentUser()
+
   const onSubmit = (e) => {
     e.preventDefault();
- 
-    axios.put('https://notrello-backend.herokuapp.com/api/useraccount/login', 
+
+    axios.put('https://notrello-backend.herokuapp.com/api/useraccount/login',
     {
         username: username,
-        password, password
+        password: password
     })
         .then((response) => {
-          setUser(user);
+          // setUser(user);
+          updateCurrentUser(response.data)
           console.log(response.data);
         })
         // , (err) => {
@@ -23,7 +30,7 @@ const Login = () => {
         // .catch((error) => {
         //   console.error.apply(error);
         // })
-        
+
   }
 
   return (
@@ -49,7 +56,7 @@ const Login = () => {
                 value='Login'
             />
           </form>
-
+          <h1>{currentUser.username}</h1>
       </div>
   )
 
