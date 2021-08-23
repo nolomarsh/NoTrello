@@ -43,7 +43,6 @@ const Header = () => {
                             <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
                             {isAuth === true ? 
                                 <Fragment>
-
                                     <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
                                     <Link to="/logout"><i className="fas fa-user"></i>Logout</Link>
                                 </Fragment>
