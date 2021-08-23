@@ -17,7 +17,7 @@ const EditCard = props => {
             .put('https://notrello-backend.herokuapp.com/api/card/' + cardUpdate.id, cardUpdate)
             .then(() => {
                 refreshData()
-                props.setCardView('details')
+                props.toggleCardEdit()
             })
     }
 
@@ -28,7 +28,8 @@ const EditCard = props => {
             <label>Title: <input type='text' name='name' value={cardUpdate.name} onChange={updateChangeHandler}/></label>
             <label>Description: <textarea name='body' value={cardUpdate.body} onChange={updateChangeHandler} /></label>
             <label>Labels: <input type='text' name='labels' value={cardUpdate.labels} onChange={updateChangeHandler} /></label>
-            <input type='submit' value='Submit Edit' />
+            <input className='btn btn-warning' type='submit' value='Submit Edit' />
+            <button className='btn btn-warning' onClick={props.toggleCardEdit}>Back</button>
         </form>
     )
 }
