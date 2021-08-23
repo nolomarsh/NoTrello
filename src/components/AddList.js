@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import {useRefreshData} from '../DataContext'
+import './css/List.css'
 
-const Edit_list = (props) => {
-    let emptylist = {...props.list }
+const AddList = (props) => {
+    let emptylist = { title: ' ', description: ' ' }
     let [list, setList] = useState(emptylist)
-
-    const refreshData = useRefreshData()
+    let refreshData = useRefreshData()
 
     const handleChange = (event) => {
         setList({...list, [event.target.name]: event.target.value})
@@ -14,12 +14,12 @@ const Edit_list = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        handleUpdate(list)
+        handleCreate(list)
     }
 
-    const handleUpdate = (editList) => {
+    const handleCreate = (addList) => {
         axios
-        .put('https://notrello-backend.herokuapp.com/api/list/'+editList.id, editList)
+        .post('https://notrello-backend.herokuapp.com/api/list', addList)
         .then((response) => {
             console.log(response)
             refreshData()
@@ -34,7 +34,6 @@ const Edit_list = (props) => {
                 <label htmlFor="title">Title: </label><br/>
                 <input
                     type="text"
-                    value={list.title}
                     name="title"
                     onChange={handleChange}
                 />
@@ -45,7 +44,6 @@ const Edit_list = (props) => {
                 <label htmlFor="title">Description: </label><br/>
                 <input
                     type="text"
-                    value={list.description}
                     name="description"
                     onChange={handleChange}
                 />
@@ -60,4 +58,4 @@ const Edit_list = (props) => {
     )
 }
 
-export default Edit_list
+export default AddList

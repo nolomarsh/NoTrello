@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
 import {useData} from '../DataContext'
 import List from './List'
+import AddList from "./AddList"
+
+import './css/List.css'
 
 const ListBox = (props) => {
     const lists = [...useData().lists]
@@ -10,12 +13,15 @@ const ListBox = (props) => {
             {lists.map((list, index) => {
                 return (
                     <List
-                        getLists={props.getLists}
                         key={index}
                         list={list}
                     />
                 )
             })}
+            <div className='list'>
+                <h4>Add a List</h4>
+                <AddList />
+            </div>
         </div>
     )
 }

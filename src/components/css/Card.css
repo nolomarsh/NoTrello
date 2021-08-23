@@ -1,0 +1,18 @@
+.listCard {
+    outline: 1px solid black;
+    padding: 3px;
+    margin: 5px 0;
+}
+
+.listCard p {
+    margin: 0;
+}
+
+.headLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 100%;
+}

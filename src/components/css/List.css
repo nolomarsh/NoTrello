@@ -1,6 +1,31 @@
-.list-card {
+.list {
     outline: 1px solid #aaa;
-    width: 250px;
+    min-width: 200px;
+
     align-items: center;
     margin: 10px;
+    padding: 5px;
+}
+
+.list * {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+h4 {
+    text-align: center;
+}
+
+.btn-warning {
+    margin-right: 3px;
+}
+
+.btn-light {
+    padding: 0;
+    margin: 2px 2px 2px;
+    display: block;
+    color: #05AF79;
+    border: #05DAC1 1px solid;
+    width: 100px;
+
 }
