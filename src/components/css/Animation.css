@@ -1,0 +1,37 @@
+
+/*
+.scene {
+    position: center;
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: lightblue;
+    position: absolute;
+    left: -.5em;
+    bottom: 1em;
+}
+
+.cube {
+    width: 3em;
+    height: 2em;
+    background: var(--boxColor);
+    position: absolute;
+}
+
+.floor {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 5em;
+    height: 5em;
+    background-image: repeating-conic-gradient(from 45deg, #111 0deg, #222 90deg 180deg);
+    background-size: 1em 1em;
+
+} */
