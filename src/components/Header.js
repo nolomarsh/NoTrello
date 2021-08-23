@@ -9,7 +9,7 @@ const Header = () => {
     //how to check login
         /*
             user will input data into fields
-            make a put request to api/useraccount/login 
+            make a put request to api/useraccount/login
                 - this will return an empty object if user does not exist and if password does not match
                 - return username and id if user exists
         */
@@ -18,7 +18,7 @@ const Header = () => {
             user will input data into fields
             make a post request to api/useraccount
              - "username":["user account with this username already exists."]
-             - {"username":["This field may not be blank."]} 
+             - {"username":["This field may not be blank."]}
         */
     //how to logout
 
@@ -36,16 +36,15 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
-                            {isAuth === true ? 
+                            {isAuth === true ?
                                 <Fragment>
-
-                                    <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
+                                    // <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
                                     <Link to="/logout"><i className="fas fa-user"></i>Logout</Link>
                                 </Fragment>
                                     :
                                 <Fragment>
-                                    <Link to="/login"><i className="fas fa-user"></i>Login</Link>
-                                    <Link to="/signup"><i className="fas fa-board"></i>Create New User</Link>
+                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Sign in</Link>
+                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Sign up</Link>
                                 </Fragment>
                             }
                         </Nav>

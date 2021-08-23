@@ -20,8 +20,12 @@ h4 {
     margin-right: 3px;
 }
 
-.btn-show {
+.btn-light {
     padding: 0;
-    margin: 0;
+    margin: 2px 2px 2px;
     display: block;
+    color: #05AF79;
+    border: #05DAC1 1px solid;
+    width: 100px;
+
 }
