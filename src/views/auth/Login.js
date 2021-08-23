@@ -2,25 +2,33 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 const Login = () => {
   const [username, setUsername] = useState('');
-  const [passsword, setPassword] = useState('');
-  const [user, setUser] = useState({
-      username: '',
-      password: ''
-  })
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({});
   
   const onSubmit = (e) => {
     e.preventDefault();
  
-    axios.put('https://notrello-backend.herokuapp.com/api/useraccount/login')
+    axios.put('https://notrello-backend.herokuapp.com/api/useraccount/login', 
+    {
+        username: username,
+        password, password
+    })
         .then((response) => {
-          setUser(response.data);
+          setUser(user);
           console.log(response.data);
         })
+        // , (err) => {
+        //   console.error(err)
+        // })
+        // .catch((error) => {
+        //   console.error.apply(error);
+        // })
+        
   }
 
   return (
       <div>
-          <form onSumbit={onSubmit}>
+          <form onSubmit={onSubmit}>
             <label htmlFor='username'>Enter Username</label><br/>
             <input
                 name='username'
@@ -32,6 +40,7 @@ const Login = () => {
             <input
                 name='password'
                 type='password'
+                value={password}
                 required
                 onChange={e => setPassword(e.target.value)}
             /><br/><br/>
@@ -40,6 +49,7 @@ const Login = () => {
                 value='Login'
             />
           </form>
+
       </div>
   )
 
