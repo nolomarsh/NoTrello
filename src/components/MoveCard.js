@@ -3,10 +3,10 @@ import axios from 'axios'
 import { useData, useRefreshData } from '../DataContext'
 
 const MoveCard = props => {
-    const lists = useData().lists
+    const otherLists = useData().lists.filter(list => list.id !== props.card.list)
     const refreshData = useRefreshData()
 
-    let [newList, setNewList] = useState(lists[0].id)
+    let [newList, setNewList] = useState(otherLists[0].id)
 
     const handleSelectChange = e => {
         setNewList(e.target.value)
@@ -24,7 +24,7 @@ const MoveCard = props => {
     return (
         <form onSubmit={handleMoveCard}>
             <select onChange={handleSelectChange}>
-                {lists.map((list, index) => {
+                {otherLists.filter(list => list.id !== props.card.list).map((list, index) => {
                     return (
                         <option value={list.id}>{list.title}</option>
                     )
