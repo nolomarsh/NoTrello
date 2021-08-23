@@ -7,3 +7,12 @@
 .listCard p {
     margin: 0;
 }
+
+.headLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 100%;
+}

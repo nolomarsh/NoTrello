@@ -2,6 +2,19 @@
   margin: 0;
   padding: 0;
 }
+
+
+html {
+    background: #cbccc8;
+    height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100v%;
+    background-image: radial-gradient(pink 10%, lightblue 50%);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -13,18 +26,25 @@
   color: white;
 }
 .list-box{
-  /* height: 85vh; */
+
+  min-height: 85vh;
   width: 100vw;
   /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   overflow: auto;
-  white-space: nowrap;
   padding: 10px;
   margin-left: 10px;
-
 }
 
-.dummy {
-    height: 120px;
+.btn {
+    padding: 5px;
+}
+
+.list{
+    color: 	#ff0080;
+    background-color: 	 #80ffff;
+    font-family: 'Urbanist', sans-serif;
+    box-shadow: 10px 10px 5px grey;
 }

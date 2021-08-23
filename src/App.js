@@ -1,12 +1,16 @@
+
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios'
 import './App.css'
 
-import Add from './components/Add'
+
+// import Add from './components/Add'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ListBox from './components/ListBox'
+import Animation from './components/Animation'
+
 
 
 import { DataProvider } from './DataContext'
@@ -15,19 +19,6 @@ import Login from './views/auth/Login'
 import Signup from './views/auth/Signup'
 
 const App = () => {
-    let [lists, setLists] = useState([])
-
-    const getLists = () => {
-        axios.get('http://notrello-backend.herokuapp.com/api/list')
-        .then((response) => setLists(response.data),
-            (error) => console.error(error))
-        .catch((error) => console.error(error))
-    }
-
-    useEffect(() => {
-        getLists()
-    }, [])
-
 
 return (
 
@@ -41,7 +32,8 @@ return (
                 <Route path='/signup' component={Signup} exact />
             </Switch>
 
-            <Add />
+        <Animation />
+
 
             <ListBox />
 
@@ -50,7 +42,6 @@ return (
         </Router>
     </div>
     </ DataProvider >
-
 )
 
 
