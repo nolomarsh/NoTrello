@@ -21,13 +21,12 @@ const EditCard = props => {
             })
     }
 
-
-
     return (
         <form onSubmit={handleUpdateCard}>
             <label>Title: <input type='text' name='name' value={cardUpdate.name} onChange={updateChangeHandler}/></label>
             <label>Description: <textarea name='body' value={cardUpdate.body} onChange={updateChangeHandler} /></label>
             <label>Labels: <input type='text' name='labels' value={cardUpdate.labels} onChange={updateChangeHandler} /></label>
+            <label>Image URL: <input type='text' name='image' value={cardUpdate.image} onChange={updateChangeHandler} /></label>
             <input className='btn btn-warning' type='submit' value='Submit Edit' />
             <button className='btn btn-warning' onClick={props.toggleCardEdit}>Back</button>
         </form>

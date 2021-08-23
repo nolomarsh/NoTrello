@@ -22,6 +22,9 @@ const Card = props => {
 
     return(
         <div className='listCard'>
+            {props.card.image &&
+                <img src={props.card.image} alt='card attachment'/>
+            }
             <div className='headLine'>
                 <p>{props.card.name}</p>
                 <p onClick={toggleCardDetails}>...</p>
