@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const DataContext = React.createContext()
 const RefreshDataContext = React.createContext()
+const UpdateCurrentUser = React.createContext()
+
 
 export const useData = () => {
     return useContext(DataContext)
@@ -12,13 +14,21 @@ export const useRefreshData = () => {
     return useContext(RefreshDataContext)
 }
 
+export const useUpdateCurrentUser = () => {
+    return useContext(UpdateCurrentUser)
+}
+
 export const DataProvider = ({ children }) => {
     const [lists, setLists] = useState([])
     const [cards, setCards] = useState([])
+    const [users, setUsers] = useState([])
+    const [currentUser, setCurrentUser] = useState({})
 
     let data = {
         lists: lists,
-        cards: cards
+        cards: cards,
+        users: users,
+        currentUser: currentUser
     }
 
     const refreshData = () => {
@@ -30,8 +40,22 @@ export const DataProvider = ({ children }) => {
                     .get('https://notrello-backend.herokuapp.com/api/card')
                     .then((response) => {
                         setCards(response.data)
+                        axios
+                            .get('https://notrello-backend.herokuapp.com/api/useraccount')
+                            .then((response) => {
+                                setUsers(response.data)
+                            })
                     })
             })
+    }
+
+    const updateCurrentUser = (user) => {
+        if (user) {
+            setCurrentUser(user)
+        } else {
+            setCurrentUser({})
+        }
+
     }
 
     useEffect(() => {
@@ -41,7 +65,9 @@ export const DataProvider = ({ children }) => {
     return (
         <DataContext.Provider value={data}>
             <RefreshDataContext.Provider value={refreshData}>
-                {children}
+                <UpdateCurrentUser.Provider value={updateCurrentUser}>
+                    {children}
+                </UpdateCurrentUser.Provider>
             </RefreshDataContext.Provider>
         </DataContext.Provider>
     )

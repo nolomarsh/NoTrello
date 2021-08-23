@@ -1,13 +1,15 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import { Navbar, Nav, Container, Row } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import { useData, useUpdateCurrentUser } from '../DataContext'
 import axios from 'axios'
 import './css/Header.css'
 
 const Header = () => {
     const [isAuth, setIsAuth] = useState(false);
+    let currentUser = useData().currentUser
 
-
+    let updateCurrentUser = useUpdateCurrentUser()
 
 
     //how to check login
@@ -30,8 +32,17 @@ const Header = () => {
 
 
         */
+    const handleLogout = () => {
+        // console.log(currentUser)
+        updateCurrentUser({})
+    }
 
-   
+    useEffect(() => {
+        if (currentUser !== {}){
+            setIsAuth(false)
+        }
+    })
+
     return (
         <header id="navbar">
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -41,10 +52,10 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
-                            {isAuth === true ?
+                            {currentUser.username ?
                                 <Fragment>
-                                    // <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
-                                    <Link to="/logout"><i className="fas fa-user"></i>Logout</Link>
+                                    <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
+                                    <Link><i className='fas fa-board' onClick={handleLogout}>Logout</i></Link>
                                 </Fragment>
                                     :
                                 <Fragment>

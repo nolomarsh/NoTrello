@@ -17,7 +17,6 @@ import { DataProvider } from './DataContext'
 
 import Login from './views/auth/Login'
 import Signup from './views/auth/Signup'
-import Logout from './views/auth/Logout'
 const App = () => {
 
 return (
@@ -30,7 +29,6 @@ return (
             <Switch>
                 <Route path='/login' component={Login} exact />
                 <Route path='/signup' component={Signup} exact />
-                <Route path='/login' component={Logout} exact />
             </Switch>
 
         <Animation />
@@ -38,7 +36,7 @@ return (
             <ListBox />
 
             <Footer />
-        
+
         </Router>
     </div>
     </ DataProvider >
