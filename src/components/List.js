@@ -40,7 +40,7 @@ const List = props => {
                             </>
                 )})}
 
-                <p className='btn btn-show' onClick={toggleAddCard}>{showAddCard ? 'x Close Form' : '+Add Card'}</p>
+                <p className='btn btn-light' onClick={toggleAddCard}>{showAddCard ? 'x Close Form' : '+Add Card'}</p>
                 {showAddCard &&
                     <AddCard list={props.list} />
                 }
