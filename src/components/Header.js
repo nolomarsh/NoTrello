@@ -31,7 +31,7 @@ const Header = () => {
 
         */
 
-   
+
     return (
         <header id="navbar">
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -48,8 +48,8 @@ const Header = () => {
                                 </Fragment>
                                     :
                                 <Fragment>
-                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Sign in</Link>
-                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Sign up</Link>
+                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Login</Link>
+                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Create New User</Link>
                                 </Fragment>
                             }
                         </Nav>
