@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
 import { useData, useUpdateCurrentUser } from '../../DataContext'
 
@@ -33,30 +33,44 @@ const Login = () => {
 
   }
 
+  const handleLogout = () => {
+    // console.log(currentUser)
+    updateCurrentUser({})
+}
+
   return (
       <div>
-          <form onSubmit={onSubmit}>
-            <label htmlFor='username'>Enter Username</label><br/>
-            <input
-                name='username'
-                type='text'
-                value={username}
-                required
-                onChange={e => setUsername(e.target.value)}
-            /><br/><br/>
-            <input
-                name='password'
-                type='password'
-                value={password}
-                required
-                onChange={e => setPassword(e.target.value)}
-            /><br/><br/>
-            <input
+        {currentUser.username ?
+          <Fragment>
+            <h1>{currentUser.username}</h1>
+          </Fragment>
+          :
+          <Fragment>
+              <form onSubmit={onSubmit}>
+              <label htmlFor='username'>Enter Username</label><br/>
+              <input
+                 name='username'
+                  type='text'
+                  value={username}
+                  required
+                  onChange={e => setUsername(e.target.value)}
+              /><br/><br/>
+              <input
+                  name='password'
+                 type='password'
+                  value={password}
+                  required
+                 onChange={e => setPassword(e.target.value)}
+              /><br/><br/>
+             <input
                 type='submit'
                 value='Login'
-            />
+             />
           </form>
-          <h1>{currentUser.username}</h1>
+            </Fragment>
+          }
+          
+          
       </div>
   )
 
