@@ -13,6 +13,7 @@
   color: white;
 }
 .list-box{
+
   min-height: 85vh;
   width: 100vw;
   /* border: 1px solid red; */
@@ -22,9 +23,14 @@
   overflow: auto;
   padding: 10px;
   margin-left: 10px;
-
 }
 
 .btn {
     padding: 5px;
+}
+
+.list{
+    color: 	#ff0080;
+    background-color: #08F5BC;
+    font-family: 'Urbanist', sans-serif;
 }

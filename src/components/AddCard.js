@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import {useRefreshData} from '../DataContext'
+import './css/AddCard.css'
+
 
 const AddCard = (props) => {
     let [newCard, setNewCard] = useState({name:'', body:'', labels:'', image:'', status: false, list: props.list.id})
@@ -22,10 +24,13 @@ const AddCard = (props) => {
     }
 
     return(
-        <form onSubmit={handleAddCard}>
-            <label>Title: <input type='text' name='name' onChange={handleFormUpdate} /></label>
-            <input type='submit' value='Add Card'/>
-        </form>
+
+            <form onSubmit={handleAddCard}>
+                <label>Title: <input type='text' name='name' onChange={handleFormUpdate} /></label>
+                <input type='submit' value='Add Card'/>
+            </form>
+    
+
     )
 }
 

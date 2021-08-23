@@ -4,6 +4,7 @@ import Card from './Card'
 import EditList from './EditList'
 import AddCard from './AddCard'
 import { useData } from '../DataContext'
+import { Navbar, Nav } from 'react-bootstrap'
 
 const List = props => {
     let [listView, setListView] = useState('cards')
@@ -38,7 +39,8 @@ const List = props => {
                             />
                             </>
                 )})}
-                <p className='btn btn-show' onClick={toggleAddCard}>{showAddCard ? 'Close Form' : 'Add Card'}</p>
+
+                <p className='btn btn-show' onClick={toggleAddCard}>{showAddCard ? 'x Close Form' : '+Add Card'}</p>
                 {showAddCard &&
                     <AddCard list={props.list} />
                 }
