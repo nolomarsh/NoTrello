@@ -22,7 +22,12 @@ const Login = () => {
     })
         .then((response) => {
           // setUser(user);
-          updateCurrentUser(response.data)
+          if (response.data.username){
+              updateCurrentUser(response.data)
+          } else if (response.data.error) {
+              alert(response.data.error)
+          }
+
           console.log(response.data);
         })
         // , (err) => {
@@ -33,7 +38,7 @@ const Login = () => {
         // })
 
   }
-  
+
 
 
 
@@ -72,11 +77,11 @@ const Login = () => {
                 type='submit'
                 value='Login'
              />
-          </form>
+             </form>
             </Fragment>
           }
-          
-          
+
+
       </div>
   )
 

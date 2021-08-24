@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-// import axios from 'axios'
+import {useRefreshData} from "../DataContext"
+import axios from 'axios'
 import './css/Card.css'
 import EditCard from './EditCard'
 import MoveCard from './MoveCard'
@@ -7,6 +8,8 @@ import MoveCard from './MoveCard'
 const Card = props => {
     // let [card] = useState({...props.card})
     let [cardView, setCardView] = useState('mini')
+
+    const refreshData = useRefreshData()
 
     const toggleCardDetails = () => {
         cardView === 'mini' ? setCardView('details') : setCardView('mini')
@@ -18,6 +21,14 @@ const Card = props => {
 
     const toggleCardMove = () => {
         cardView === 'move' ? setCardView('details') : setCardView('move')
+    }
+
+    const handleDelete = e => {
+        axios
+            .delete('https://notrello-backend.herokuapp.com/api/card/' + props.card.id)
+            .then(() => {
+                refreshData()
+            })
     }
 
     return(
@@ -35,6 +46,7 @@ const Card = props => {
                 <p>{props.card.labels}</p>
                 <button className='btn btn-warning' onClick={toggleCardEdit}>Edit</button>
                 <button className='btn btn-warning' onClick={toggleCardMove}>Move</button>
+                <button className='btn btn-warning' onClick={handleDelete}>Delete</button>
             </>
             }
             {cardView === 'edit' &&

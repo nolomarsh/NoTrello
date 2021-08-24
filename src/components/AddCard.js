@@ -20,6 +20,7 @@ const AddCard = (props) => {
             .post('https://notrello-backend.herokuapp.com/api/card', newCard)
             .then(() => {
                 refreshData()
+                props.setShowAddCard(false)
             })
     }
 
@@ -29,7 +30,7 @@ const AddCard = (props) => {
                 <label>Title: <input type='text' name='name' onChange={handleFormUpdate} /></label>
                 <input type='submit' value='Add Card'/>
             </form>
-    
+
 
     )
 }
