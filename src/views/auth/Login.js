@@ -24,6 +24,7 @@ const Login = () => {
           // setUser(user);
           if (response.data.username){
               updateCurrentUser(response.data)
+              localStorage.setItem('currentUser', JSON.stringify(response.data))
           } else if (response.data.error) {
               alert(response.data.error)
           }
@@ -79,7 +80,7 @@ const Login = () => {
 						onChange={e => setPassword(e.target.value)}
 						/><br/><br/>
 					<div className="d-flex justify-content-center">
-					<input	
+					<input
 						className="btn btn-primary float-right mr-3"
 						type='submit'
 						value='Login'
