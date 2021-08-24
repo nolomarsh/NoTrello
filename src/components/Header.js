@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import { Navbar, Nav, Container, Row } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Link , Redirect} from 'react-router-dom'
 import { useData, useUpdateCurrentUser } from '../DataContext'
 import axios from 'axios'
 import './css/Header.css'
@@ -55,10 +55,9 @@ const Header = () => {
                             {currentUser.username ?
 
                                 <Fragment>
-                                    <Link to="/boards"><i className="nav-link fas fa-board"></i>Boards</Link>
-                                    <Link to='/'><i className='nav-link fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
+                                    <Redirect to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Redirect>
+                                    <Link to='/' className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
                                 </Fragment>
-
                                     :
                                 <Fragment>
                                     <Link to="/login" className="nav-link"><i className="fas fa-sign-in-alt"></i>Login</Link>

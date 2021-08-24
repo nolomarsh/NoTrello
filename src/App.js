@@ -29,7 +29,8 @@ return (
             <Switch>
                 <Route 
                     exact path='/login' 
-                    component={Login} 
+                    component={Login}
+
                     />
                 <Route 
                     exact path='/signup' 
