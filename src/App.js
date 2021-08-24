@@ -17,47 +17,44 @@ import { DataProvider } from './DataContext'
 
 import Login from './views/auth/Login'
 import Signup from './views/auth/Signup'
+
 const App = () => {
+    
 
-return (
+    return (
 
-    < DataProvider >
-    <div className="wrapper">
-        <Router>
+        < DataProvider >
+        <div className="wrapper">
+            <Router>
+                <Switch>
+                    <Route 
+                        exact path='/' 
+                        component={Home}
+                        />
+                    <Route 
+                        exact path='/home' 
+                        component={Home}
+                        />
+                    <Route 
+                        exact path='/login' 
+                        component={Login}
+                        />
+                    <Route 
+                        exact path='/signup' 
+                        component={Signup} 
+                        />
+                    <Route 
+                        exact path='/boards' 
+                        component={ListBox} 
+                        />
+                </Switch>
 
-            <Header />
-            <Switch>
-                <Route 
-                    exact path='/' 
-                    component={Home}
-                    />
-                 <Route 
-                    exact path='/home' 
-                    component={Home}
-                    />
-                <Route 
-                    exact path='/login' 
-                    component={Login}
-                    />
-                <Route 
-                    exact path='/signup' 
-                    component={Signup} 
-                    />
-                <Route 
-                    exact path='/boards' 
-                    component={ListBox} 
-                    />
-            </Switch>
-            <Animation />
-
-            <Footer />
-
-
-
-        </Router>
-    </div>
-    </ DataProvider >
-)
+                <Animation />
+                <Footer />
+            </Router>
+        </div>
+        </ DataProvider >
+    )
 
 
 }

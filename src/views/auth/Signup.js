@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
+import Header from '../../components/Header'
+
 const Signup = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,6 +23,8 @@ const Signup = () => {
   }
 
   return (
+      <>
+      <Header/>
       <div className='container-fluid'>
           <form onSubmit={onSubmit}>
             <label htmlFor='username'>Enter Username</label><br/><br/>
@@ -31,7 +35,7 @@ const Signup = () => {
                 placeholder='Username'
                 required
                 onChange={e => setUsername(e.target.value)}
-            /><br/><br/>
+                /><br/><br/>
             <input
                 className="form-control"
                 name='password'
@@ -39,7 +43,7 @@ const Signup = () => {
                 placeholder='Password'
                 required
                 onChange={e => setPassword(e.target.value)}
-            /><br/><br/>
+                /><br/><br/>
             <div className="d-flex justify-content-center">
             <input
                 className="btn btn-primary"
@@ -49,6 +53,7 @@ const Signup = () => {
             </div>
           </form>
       </div>
+    </>
   )
 }
 

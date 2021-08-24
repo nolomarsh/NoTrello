@@ -2,12 +2,14 @@ import { white } from 'jest-matcher-utils/node_modules/chalk'
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './css/Home.css'
-
+import Header from './Header'
 
 
 
 const Home = () => {
   return(
+    <>
+    <Header/>
     <div className="container-fluid main border">
         <div className="company-description">
             <h1 className="title">NoTrello</h1>
@@ -19,6 +21,7 @@ const Home = () => {
             <Link to="/signup" className="nav-link d-flex justify-content-center"><i className="fas fa-user-plus"></i>Create New User</Link>
         </div>
     </div>
+    </>
   )
 }
 

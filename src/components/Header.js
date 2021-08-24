@@ -10,7 +10,7 @@ const Header = () => {
     let currentUser = useData().currentUser
 
     let updateCurrentUser = useUpdateCurrentUser()
-
+    
 
     //how to check login
         /*
@@ -39,27 +39,24 @@ const Header = () => {
     }
 
     useEffect(() => {
-        if (currentUser !== {}){
-            setIsAuth(false)
-        }
+
     })
     return (
         <header id="navbar">
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
                 <Container>
-                    <Navbar.Brand href="/home">Notrello</Navbar.Brand>
+                    <Link to="/home" className="navbar-brand">Notrello</Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
                             {currentUser.username ?
-
                                 <Fragment>
                                     <Redirect to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Redirect>
                                     <Link to='/' className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
                                 </Fragment>
                                     :
                                 <Fragment>
+                                    <Link to="/home" className="nav-link"><i className="fas fa-home"></i>Home</Link>
                                     <Link to="/login" className="nav-link"><i className="fas fa-sign-in-alt"></i>Login</Link>
                                     <Link to="/signup" className="nav-link"><i className="fas fa-user-plus"></i>Create New User</Link>
                                 </Fragment>
