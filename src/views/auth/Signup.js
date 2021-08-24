@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
+import {useUpdateCurrentUser} from '../../DataContext'
 import axios from 'axios'
 const Signup = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     let newUser = {username: ' ', password: ' '}
     const [user, setUser] = useState(newUser);
-  
+
+    const updateCurrentUser = useUpdateCurrentUser()
+
   const onSubmit = (e) => {
     e.preventDefault();
- 
-    axios.post('https://notrello-backend.herokuapp.com/api/useraccount' , 
+
+    axios.post('https://notrello-backend.herokuapp.com/api/useraccount' ,
     {
         username: username,
-        password, password
+        password: password
     })
         .then((response) => {
         console.log("the username is:" + username);
-          setUser(response.data);
+          updateCurrentUser(response.data)
+          localStorage.setItem('currentUser',JSON.stringify(response.data))
         })
   }
 
