@@ -55,8 +55,8 @@ const Header = () => {
                             {currentUser.username ?
 
                                 <Fragment>
-                                    <Nav.Link to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Nav.Link>
-                                    <Nav.Link to="/logout" className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Nav.Link>
+                                    <Link to="/boards"><i className="nav-link fas fa-board"></i>Boards</Link>
+                                    <Link to='/'><i className='nav-link fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
                                 </Fragment>
 
                                     :

@@ -27,15 +27,24 @@ return (
 
             <Header />
             <Switch>
-                <Route path='/login' component={Login} exact />
-                <Route path='/signup' component={Signup} exact />
+                <Route 
+                    exact path='/login' 
+                    component={Login} 
+                    />
+                <Route 
+                    exact path='/signup' 
+                    component={Signup} 
+                    />
+                <Route 
+                    exact path='/boards' 
+                    component={ListBox} 
+                    />
             </Switch>
-
-        <Animation />
-
-            <ListBox />
+            <Animation />
 
             <Footer />
+
+
 
         </Router>
     </div>
