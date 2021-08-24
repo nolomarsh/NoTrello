@@ -36,6 +36,7 @@ const Header = () => {
     const handleLogout = () => {
         // console.log(currentUser)
         updateCurrentUser({})
+        localStorage.removeItem('currentUser')
     }
 
     useEffect(() => {

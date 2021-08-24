@@ -62,6 +62,9 @@ export const DataProvider = ({ children }) => {
 
     useEffect(() => {
         refreshData()
+        if (localStorage.getItem('currentUser')) {
+            setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
+        }
     }, [])
 
     return (
