@@ -28,8 +28,16 @@ return (
             <Header />
             <Switch>
                 <Route 
+                    exact path='/' 
+                    component={Login}
+                    />
+                 <Route 
+                    exact path='/home' 
+                    component={Login}
+                    />
+                <Route 
                     exact path='/login' 
-                    component={Login} 
+                    component={Login}
                     />
                 <Route 
                     exact path='/signup' 
