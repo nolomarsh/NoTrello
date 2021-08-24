@@ -15,7 +15,6 @@ const Home = () => {
                 I don't know what you're talking about.<br/>  
                 This is a completely original project management application.</p>
             <br/>
-            <br/>
             <Link to="/login" className="nav-link d-flex justify-content-center"><i className="fas fa-sign-in-alt"></i>Login</Link>
             <Link to="/signup" className="nav-link d-flex justify-content-center"><i className="fas fa-user-plus"></i>Create New User</Link>
         </div>
