@@ -10,7 +10,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ListBox from './components/ListBox'
 import Animation from './components/Animation'
-
+import Home from './components/Home'
 
 
 import { DataProvider } from './DataContext'
@@ -29,11 +29,11 @@ return (
             <Switch>
                 <Route 
                     exact path='/' 
-                    component={Login}
+                    component={Home}
                     />
                  <Route 
                     exact path='/home' 
-                    component={Login}
+                    component={Home}
                     />
                 <Route 
                     exact path='/login' 
