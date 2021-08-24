@@ -57,28 +57,37 @@ const Login = () => {
           </Fragment>
           :
           <Fragment>
+          <div className='container-fluid'>
+
               <form onSubmit={onSubmit}>
-              <label htmlFor='username'>Enter Username</label><br/>
-              <input
-                 name='username'
-                  type='text'
-                  value={username}
-                  required
-                  onChange={e => setUsername(e.target.value)}
-              /><br/><br/>
-              <input
-                  name='password'
-                 type='password'
-                  value={password}
-                  required
-                 onChange={e => setPassword(e.target.value)}
-              /><br/><br/>
-             <input
-                type='submit'
-                value='Login'
-             />
+					<label htmlFor='username'>Enter Username</label><br/><br/>
+					<input
+						className="form-control"
+						name='username'
+						type='text'
+						value={username}
+						required
+						onChange={e => setUsername(e.target.value)}
+						/><br/><br/>
+
+					<input
+						className="form-control"
+						name='password'
+						type='password'
+						value={password}
+						required
+						onChange={e => setPassword(e.target.value)}
+						/><br/><br/>
+					<div className="d-flex justify-content-center">
+					<input	
+						className="btn btn-primary float-right mr-3"
+						type='submit'
+						value='Login'
+						/>
+					</div>
              </form>
-            </Fragment>
+          </div>
+          </Fragment>
           }
 
 
