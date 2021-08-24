@@ -55,13 +55,8 @@ const Header = () => {
                             {currentUser.username ?
 
                                 <Fragment>
-<<<<<<< HEAD
-                                    <Link to="/boards" className="nav-link"><i className="nav-link fas fa-board"></i>Boards</Link>
-                                    <Link to='/'><i className='nav-link fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
-=======
                                     <Redirect to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Redirect>
                                     <Link to='/' className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
->>>>>>> faa31935940c97d4175e781bbf8eebf8a62bac41
                                 </Fragment>
                                     :
                                 <Fragment>
