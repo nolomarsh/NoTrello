@@ -27,14 +27,14 @@ const Card = props => {
             }
             <div className='headLine'>
                 <p>{props.card.name}</p>
-                <p onClick={toggleCardDetails}>...</p>
+                <p onClick={toggleCardDetails}><i class="fas fa-ellipsis-h"></i></p>
             </div>
             {cardView === 'details' &&
             <>
                 <p>{props.card.body}</p>
                 <p>{props.card.labels}</p>
-                <button className='btn btn-warning' onClick={toggleCardEdit}>Edit Card</button>
-                <button className='btn btn-warning' onClick={toggleCardMove}>Move Card</button>
+                <button className='btn btn-warning' onClick={toggleCardEdit}>Edit</button>
+                <button className='btn btn-warning' onClick={toggleCardMove}>Move</button>
             </>
             }
             {cardView === 'edit' &&
