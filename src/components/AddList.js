@@ -14,6 +14,7 @@ const AddList = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        event.target.reset()
         handleCreate(list)
     }
 
