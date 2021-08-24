@@ -2,7 +2,7 @@ import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
 import { useData, useUpdateCurrentUser } from '../../DataContext'
 import {Link} from 'react-router-dom'
-
+import Header from '../../components/Header'
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -51,6 +51,7 @@ const Login = () => {
 
   return (
       <div>
+		<Header />  
         {currentUser.username ?
           <Fragment>
             <h1>{currentUser.username}</h1>

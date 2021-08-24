@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import { useData, useUpdateCurrentUser } from '../../DataContext'
-
+import Header from '../../components/Header'
 const Logout = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,6 +29,7 @@ const Logout = () => {
 
   return (
       <div>
+        <Header/>
           <form onSubmit={onSubmit}>
             <label htmlFor='username'>Enter Username</label><br/>
             <input
