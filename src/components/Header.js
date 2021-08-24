@@ -55,14 +55,14 @@ const Header = () => {
                             {currentUser.username ?
 
                                 <Fragment>
-                                    <Nav.Link to="/boards"><i className="fas fa-board"></i>Boards</Nav.Link>
-                                    <Nav.Link><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Nav.Link>
+                                    <Nav.Link to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Nav.Link>
+                                    <Nav.Link to="/logout" className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Nav.Link>
                                 </Fragment>
 
                                     :
                                 <Fragment>
-                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Login</Link>
-                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Create New User</Link>
+                                    <Link to="/login" className="nav-link"><i className="fas fa-sign-in-alt"></i>Login</Link>
+                                    <Link to="/signup" className="nav-link"><i className="fas fa-user-plus"></i>Create New User</Link>
                                 </Fragment>
                             }
                         </Nav>
