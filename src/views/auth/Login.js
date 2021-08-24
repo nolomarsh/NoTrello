@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
 import { useData, useUpdateCurrentUser } from '../../DataContext'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -21,7 +22,13 @@ const Login = () => {
     })
         .then((response) => {
           // setUser(user);
-          updateCurrentUser(response.data)
+          if (response.data.username){
+              updateCurrentUser(response.data)
+              localStorage.setItem('currentUser', JSON.stringify(response.data))
+          } else if (response.data.error) {
+              alert(response.data.error)
+          }
+
           console.log(response.data);
         })
         // , (err) => {
@@ -33,30 +40,58 @@ const Login = () => {
 
   }
 
+
+
+
+
+//   const handleLogout = () => {
+//     // console.log(currentUser)
+//     updateCurrentUser({})
+// }
+
   return (
       <div>
-          <form onSubmit={onSubmit}>
-            <label htmlFor='username'>Enter Username</label><br/>
-            <input
-                name='username'
-                type='text'
-                value={username}
-                required
-                onChange={e => setUsername(e.target.value)}
-            /><br/><br/>
-            <input
-                name='password'
-                type='password'
-                value={password}
-                required
-                onChange={e => setPassword(e.target.value)}
-            /><br/><br/>
-            <input
-                type='submit'
-                value='Login'
-            />
-          </form>
-          <h1>{currentUser.username}</h1>
+        {currentUser.username ?
+          <Fragment>
+            <h1>{currentUser.username}</h1>
+            <Link to="/boards"><i className="nav-link fas fa-board"></i>Boards</Link>
+          </Fragment>
+          :
+          <Fragment>
+          <div className='container-fluid'>
+
+              <form onSubmit={onSubmit}>
+					<label htmlFor='username'>Enter Username</label><br/><br/>
+					<input
+						className="form-control"
+						name='username'
+						type='text'
+						value={username}
+						required
+						onChange={e => setUsername(e.target.value)}
+						/><br/><br/>
+
+					<input
+						className="form-control"
+						name='password'
+						type='password'
+						value={password}
+						required
+						onChange={e => setPassword(e.target.value)}
+						/><br/><br/>
+					<div className="d-flex justify-content-center">
+					<input
+						className="btn btn-primary float-right mr-3"
+						type='submit'
+						value='Login'
+						/>
+					</div>
+             </form>
+          </div>
+          </Fragment>
+          }
+
+
       </div>
   )
 

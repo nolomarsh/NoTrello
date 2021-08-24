@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import { Navbar, Nav, Container, Row } from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Link , Redirect} from 'react-router-dom'
 import { useData, useUpdateCurrentUser } from '../DataContext'
 import axios from 'axios'
 import './css/Header.css'
@@ -32,9 +32,11 @@ const Header = () => {
 
 
         */
+
     const handleLogout = () => {
         // console.log(currentUser)
         updateCurrentUser({})
+        localStorage.removeItem('currentUser')
     }
 
     useEffect(() => {
@@ -52,14 +54,15 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
                             {currentUser.username ?
+
                                 <Fragment>
-                                    <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
-                                    <Link><i className='fas fa-board' onClick={handleLogout}>Logout</i></Link>
+                                    <Redirect to="/boards" className="nav-link"><i className="fas fa-board"></i>Boards</Redirect>
+                                    <Link to='/' className="nav-link"><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Link>
                                 </Fragment>
                                     :
                                 <Fragment>
-                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Login</Link>
-                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Create New User</Link>
+                                    <Link to="/login" className="nav-link"><i className="fas fa-sign-in-alt"></i>Login</Link>
+                                    <Link to="/signup" className="nav-link"><i className="fas fa-user-plus"></i>Create New User</Link>
                                 </Fragment>
                             }
                         </Nav>

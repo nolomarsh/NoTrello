@@ -1,37 +1,16 @@
-
-/*
-.scene {
-    position: center;
-    background-color: #000;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(125deg, #070D00, #F4F9EE);
+    background-size: 400%;
+    animation: bganimation 15s infinite;
 }
 
-.ball {
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background: lightblue;
-    position: absolute;
-    left: -.5em;
-    bottom: 1em;
+@keyframes bganimation  {
+
+    50%{
+        background-position: 100% 20%;
+    }
+
+
 }
-
-.cube {
-    width: 3em;
-    height: 2em;
-    background: var(--boxColor);
-    position: absolute;
-}
-
-.floor {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 5em;
-    height: 5em;
-    background-image: repeating-conic-gradient(from 45deg, #111 0deg, #222 90deg 180deg);
-    background-size: 1em 1em;
-
-} */

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.main{
+    background-color: #6f7e5f;
+    height: 65vh;
+    width: 98vw;  
+}
+.company-description{
+    margin-top: 8.5rem;
+}
+.title{
+    text-align: center;
+}
+.brand{
+    text-align: center;
+}
+.nope{
+    text-decoration: line-through;
+}

@@ -45,6 +45,9 @@ export const DataProvider = ({ children }) => {
                             .then((response) => {
                                 setUsers(response.data)
                             })
+                          .catch((err) => {
+                            console.log(err.status);
+                          })
                     })
             })
     }
@@ -55,11 +58,13 @@ export const DataProvider = ({ children }) => {
         } else {
             setCurrentUser({})
         }
-
     }
 
     useEffect(() => {
         refreshData()
+        if (localStorage.getItem('currentUser')) {
+            setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
+        }
     }, [])
 
     return (

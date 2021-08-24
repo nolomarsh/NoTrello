@@ -21,10 +21,11 @@ const Signup = () => {
   }
 
   return (
-      <div>
+      <div className='container-fluid'>
           <form onSubmit={onSubmit}>
-            <label htmlFor='username'>Enter Username</label><br/>
+            <label htmlFor='username'>Enter Username</label><br/><br/>
             <input
+                className="form-control"
                 name='username'
                 type='text'
                 placeholder='Username'
@@ -32,16 +33,20 @@ const Signup = () => {
                 onChange={e => setUsername(e.target.value)}
             /><br/><br/>
             <input
+                className="form-control"
                 name='password'
                 type='password'
                 placeholder='Password'
                 required
                 onChange={e => setPassword(e.target.value)}
             /><br/><br/>
+            <div className="d-flex justify-content-center">
             <input
+                className="btn btn-primary"
                 type='submit'
                 value='Create'
-            />
+                />
+            </div>
           </form>
       </div>
   )

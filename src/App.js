@@ -10,7 +10,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ListBox from './components/ListBox'
 import Animation from './components/Animation'
-
+import Home from './components/Home'
 
 
 import { DataProvider } from './DataContext'
@@ -27,15 +27,32 @@ return (
 
             <Header />
             <Switch>
-                <Route path='/login' component={Login} exact />
-                <Route path='/signup' component={Signup} exact />
+                <Route 
+                    exact path='/' 
+                    component={Home}
+                    />
+                 <Route 
+                    exact path='/home' 
+                    component={Home}
+                    />
+                <Route 
+                    exact path='/login' 
+                    component={Login}
+                    />
+                <Route 
+                    exact path='/signup' 
+                    component={Signup} 
+                    />
+                <Route 
+                    exact path='/boards' 
+                    component={ListBox} 
+                    />
             </Switch>
-
-        <Animation />
-
-            <ListBox />
+            <Animation />
 
             <Footer />
+
+
 
         </Router>
     </div>
