@@ -34,7 +34,7 @@ const List = props => {
                     return (
                             <>
                             <Card
-                                key={index}
+                                key={card.id}
                                 card={card}
                             />
                             </>
@@ -42,7 +42,7 @@ const List = props => {
 
                 <p className='btn btn-light' onClick={toggleAddCard}>{showAddCard ? 'x Close Form' : '+Add Card'}</p>
                 {showAddCard &&
-                    <AddCard list={props.list} />
+                    <AddCard list={props.list} setShowAddCard={setShowAddCard}/>
                 }
                 <p className='clickable' onClick={showEdit}><i class="far fa-edit"></i></p>
                 </>

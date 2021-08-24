@@ -9,6 +9,10 @@ html {
     height: 100%;
 }
 
+body {
+    min-height: 100vh;
+}
+
 /* body{
     display: flex;
     justify-content: center;
@@ -17,6 +21,10 @@ html {
     min-height: 100vh;
     background: #000;
 } */
+
+.wrapper {
+    min-height: 100vh;
+}
 
 .App-header {
   background-color:#282c34;
@@ -39,6 +47,7 @@ html {
   overflow: auto;
   padding: 10px;
   /* margin-left: 10px; */
+  z-index: 1;
 }
 
 .btn {
