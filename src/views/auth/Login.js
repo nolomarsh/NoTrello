@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import axios from 'axios'
 import { useData, useUpdateCurrentUser } from '../../DataContext'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -32,17 +33,22 @@ const Login = () => {
         // })
 
   }
+  
 
-  const handleLogout = () => {
-    // console.log(currentUser)
-    updateCurrentUser({})
-}
+
+
+
+//   const handleLogout = () => {
+//     // console.log(currentUser)
+//     updateCurrentUser({})
+// }
 
   return (
       <div>
         {currentUser.username ?
           <Fragment>
             <h1>{currentUser.username}</h1>
+            <Link to="/boards"><i className="nav-link fas fa-board"></i>Boards</Link>
           </Fragment>
           :
           <Fragment>
