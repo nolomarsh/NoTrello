@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# NoTrello
+Link To App:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    https://notrello.herokuapp.com/
 
-## Available Scripts
 
-In the project directory, you can run:
+IDEA: TRELLO V2.0
+https://git.generalassemb.ly/Software-Engineering-Immersive-Remote/SEIR-SmellyCat/tree/master/projects/project_4
 
-### `npm start`
+Models:
+-List: (one to many with Card)
+    List (Grouped by Id):
+        - Title varChar
+        - Description text
+        - Cards Array
+        - Timestamp
+-Card: Each item that is added to list is a Card/Post
+    Card (Grouped by Id with List):
+        - Name
+        - Body
+        - Labels
+        - Image
+        - Status (Bool)
+-User: Password encrypted using Bcrypt and csrf token attached
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+"https://notrello-backend.herokuapp.com/" + ⬇️
+    (Full CRUD For List, Cards, and Users)
+    - get api/list will return all lists
+        - post will create new list
+        - ... etc
+    - get api/card will return all cards
+        - post will create new card
+        - ... etc
+    - get api/useraccount will return all users 
+        - post will add new user to the db
+            - requires an email an email and password field 
+        - email must be unique
+        - pw will be hashed using bcrypt prior to being stored in db
+        - if username already exist an array is returned 
+            error: 
+    - get api/useraccount/id will return a single user
+        - put will update a single user - password revisions will be hashed prior to being put in the db
+        both email and pw must be sent in request
+        delete will delete one user
+    - get api/useraccount/login that will return an empty object
+        - put will find a user in the db by their email and compare their hashed pw to pw in the request
+        - if match a user obj will be returned that contains the user email and id but not the pw
+        - if they do not match an empty obj will be returned 
+        - if user email does not exist in the db and empty obj will be returned
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+STRETCH GOALS:
+- Users(Stretch) ✅
+- Auth ✅
+- useContext ✅
+- React Router ✅
+- SASS ❌
+- User should be able to have multiple boards ❌
+- Boards should be unique to each user ❌
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
