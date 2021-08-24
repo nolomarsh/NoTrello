@@ -32,6 +32,7 @@ const Header = () => {
 
 
         */
+
     const handleLogout = () => {
         // console.log(currentUser)
         updateCurrentUser({})
@@ -52,10 +53,12 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Nav.Link href="/home"><i className="fas fa-home"></i>Home</Nav.Link>
                             {currentUser.username ?
+
                                 <Fragment>
-                                    <Link to="/boards"><i className="fas fa-board"></i>Boards</Link>
-                                    <Link><i className='fas fa-board' onClick={handleLogout}>Logout</i></Link>
+                                    <Nav.Link to="/boards"><i className="fas fa-board"></i>Boards</Nav.Link>
+                                    <Nav.Link><i className='fas fa-sign-out' onClick={handleLogout}>Logout</i></Nav.Link>
                                 </Fragment>
+
                                     :
                                 <Fragment>
                                     <Link to="/login"><i className="fas fa-sign-in-alt"></i>Login</Link>
