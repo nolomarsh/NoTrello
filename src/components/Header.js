@@ -61,8 +61,8 @@ const Header = () => {
 
                                     :
                                 <Fragment>
-                                    <Link to="/login"><i className="fas fa-sign-in-alt"></i>Login</Link>
-                                    <Link to="/signup"><i className="fas fa-user-plus"></i>Create New User</Link>
+                                    <Link to="/login" className="nav-link"><i className="fas fa-sign-in-alt"></i>Login</Link>
+                                    <Link to="/signup" className="nav-link"><i className="fas fa-user-plus"></i>Create New User</Link>
                                 </Fragment>
                             }
                         </Nav>

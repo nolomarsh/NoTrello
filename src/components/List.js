@@ -44,7 +44,7 @@ const List = props => {
                 {showAddCard &&
                     <AddCard list={props.list} />
                 }
-                <button className='btn btn-warning' onClick={showEdit}>Edit List</button>
+                <p className='clickable' onClick={showEdit}><i class="far fa-edit"></i></p>
                 </>
             }
             {listView === 'Edit_List' &&
